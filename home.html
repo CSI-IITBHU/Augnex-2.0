@@ -269,7 +269,6 @@
         // Displaying all the choices in the body of the next-modal
         next_modal_navbutton.forEach(button => {
 
-              console.log('chutiye!')
 
               $(".next-modal-body").append(`<button
                       lat="${button.lat}"
@@ -288,7 +287,6 @@
       // .. display markers at all those locations 
 
       function drawpath(end) {
-        console.log("drawpath k andar :", end)
 
         const scene = document.querySelector("a-scene");
         
@@ -304,13 +302,13 @@
                 const longitude = place[0];
                 const icon = document.createElement("a-image");
                 icon.setAttribute(
-                  "gps-new-entity-place",                                 // will be gps-new-entity-place in latest versoion 
+                  "gps-entity-place",                                 // will be gps-new-entity-place in latest versoion 
                   `latitude: ${latitude + + 0.001};
                    longitude: ${longitude};`
                 );
                 // icon.setAttribute("name", place.properties.name);
                 icon.setAttribute("src", "./map-marker.png");
-                icon.setAttribute("look-at", "[gps-new-camera]");
+                icon.setAttribute("look-at", "[gps-camera]");
                 icon.setAttribute("scale", "5,5,5");
                 // console.log(icon);
                 icon.addEventListener('loaded', () => {
@@ -333,8 +331,7 @@
       // define the click event 
 
       $(".next-modal-body").click(e => {
-        console.log('next modal ke button ko click kar diya')
-        console.log("event :", e.target)
+       
         $("#next-routes").modal("hide");
         $("a-image").remove();
           // console.log($(e.target).attr("lat"));
@@ -345,7 +342,7 @@
           lat: $(e.target).attr("lat"),
           long: $(e.target).attr("long")
         };
-        console.log(end);
+        // console.log(end);
         drawpath(end);
       });
 

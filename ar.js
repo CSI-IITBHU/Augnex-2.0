@@ -1,4 +1,4 @@
-ar.js
+
 var centre = new L.LatLng(25.260644, 82.986878);
 var map = null;
 
